@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func Register(ctx context.Context, req *user_center.RegisterRequest) (resp *user_center.RegisterResponse, err error){
+func Register(ctx context.Context, req *user_center.RegisterRequest) (resp *user_center.RegisterResponse, err error) {
 	resp, err = UserCenterClient.Register(ctx, req)
 	if err != nil {
 		logrus.Warnf("Register error: %+v", err)

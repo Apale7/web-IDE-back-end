@@ -9,7 +9,7 @@ import (
 
 func Register(ctx context.Context, user user_center.User, extra user_center.UserExtra) (err error) {
 	req := &user_center.RegisterRequest{
-		User: &user,
+		User:      &user,
 		UserExtra: &extra,
 	}
 	resp, err := userCenterClient.Register(ctx, req)

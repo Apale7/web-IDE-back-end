@@ -8,7 +8,7 @@ import (
 )
 
 // Judge Judge the code and return the result
-func Judge(ctx context.Context, language CodeRunner.CodeLanguage, input, code string) (resp *CodeRunner.CodeRunnerRespone, err error){
+func Judge(ctx context.Context, language CodeRunner.CodeLanguage, input, code string) (resp *CodeRunner.CodeRunnerRespone, err error) {
 	req := &CodeRunner.CodeRunnerRequest{
 		Language_: language,
 		Input_:    input,
