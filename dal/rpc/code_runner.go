@@ -19,6 +19,5 @@ func Judge(ctx context.Context, language CodeRunner.CodeLanguage, input, code st
 		logrus.Warnf("Judge error: %+v", err)
 		return
 	}
-
 	return
 }

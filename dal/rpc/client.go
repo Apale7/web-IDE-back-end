@@ -15,7 +15,9 @@ var (
 
 func init() {
 	userCenterClient = user_center.NewUserCenterClient(getConn("localhost:8888"))
-	codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("114.215.196.246:8233"))
+	// codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("193.112.177.167:8233"))
+	codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("localhost:8233"))
+
 }
 
 func getConn(addr string) *grpc.ClientConn {
