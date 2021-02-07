@@ -7,6 +7,7 @@ find ./ -name "*.go" | xargs gofmt -w -s -l
 mkdir -p output/bin output/config
 cp -r config/ output/config/
 
-go build -o output/bin/${NAME}.out
+GOOS=windows GOARCH=amd64 go build -o output/bin/${NAME}.exe
+GOOS=darwin GOARCH=amd64 go build -o output/bin/${NAME}.out
 chmod +x output/bin/${NAME}.out
 chmod +x output/start.sh

@@ -15,8 +15,8 @@ var (
 
 func init() {
 	userCenterClient = user_center.NewUserCenterClient(getConn("localhost:8888"))
-	// codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("193.112.177.167:8233"))
-	codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("localhost:8233"))
+	codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("193.112.177.167:8233"))
+	// codeRunnerClient = CodeRunner.NewCodeRunnerClient(getConn("localhost:8233"))
 
 }
 
