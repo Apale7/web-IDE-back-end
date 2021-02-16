@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"context"
-	"web-IDE-back-end/proto/CodeRunner"
+	"web-IDE-back-end/proto/codeRunner"
 
 	"github.com/sirupsen/logrus"
 )

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"web-IDE-back-end/dal/rpc"
 	"web-IDE-back-end/model"
-	"web-IDE-back-end/proto/CodeRunner"
+	"web-IDE-back-end/proto/codeRunner"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
