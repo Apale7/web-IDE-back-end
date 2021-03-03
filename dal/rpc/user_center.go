@@ -22,7 +22,7 @@ func Register(ctx context.Context, user *user_center.User, extra *user_center.Us
 	return
 }
 
-func Login(ctx context.Context, username, password string) (token string, err error) {
+func Login(ctx context.Context, username, password string) (accessToken, refreshToken string, err error) {
 	req := &user_center.LoginRequest{
 		Username: username,
 		Password: password,
@@ -31,7 +31,8 @@ func Login(ctx context.Context, username, password string) (token string, err er
 	if err != nil {
 		return
 	}
-	return resp.Token, nil
+
+	return resp.AccessToken, resp.RefreshToken, nil
 }
 
 func CheckToken(ctx context.Context, token string) (userInfo *user_center.UserInfo, err error) {

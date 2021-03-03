@@ -1,11 +1,12 @@
 package rpc
 
 import (
-	"github.com/sirupsen/logrus"
-	"google.golang.org/grpc"
 	codeRunner "web-IDE-back-end/proto/codeRunner"
 	containerManager "web-IDE-back-end/proto/container_server"
 	user_center "web-IDE-back-end/proto/user-center"
+
+	"github.com/sirupsen/logrus"
+	"google.golang.org/grpc"
 )
 
 var (
@@ -15,7 +16,7 @@ var (
 )
 
 func init() {
-	userCenterClient = user_center.NewUserCenterClient(getConn("localhost:8888"))
+	userCenterClient = user_center.NewUserCenterClient(getConn("localhost.charlesproxy.com:8888"))
 	codeRunnerClient = codeRunner.NewCodeRunnerClient(getConn("193.112.177.167:8233"))
 	containerManagerClient = containerManager.NewManagerClient(getConn("193.112.177.167:8666"))
 }

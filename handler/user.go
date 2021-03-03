@@ -18,14 +18,14 @@ func Login(c *gin.Context) {
 		utils.RetErr(c, err)
 		return
 	}
-
-	token, err := rpc.Login(ctx, reqBody.Username, reqBody.Password)
+	logrus.Infof("reqBody: %+v", reqBody)
+	accessToken, refreshToken, err := rpc.Login(ctx, reqBody.Username, reqBody.Password)
 	if err != nil {
 		logrus.Warnf("login failed, err: %v", err)
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, gin.H{"token": token})
+	utils.RetData(c, gin.H{"accessToken": accessToken, "refreshToken": refreshToken})
 }
 
 func Register(c *gin.Context) {
