@@ -1,6 +1,8 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-github.com/Apale7/common v0.0.0-20210217054603-e8ef3fc6c4cc h1:8j2VL+2E7FzViaqc4TkqcKc1F55cB7aEvwUBRHXwLV4=
-github.com/Apale7/common v0.0.0-20210217054603-e8ef3fc6c4cc/go.mod h1:S+Smwc54DU2qjEmNU+tcKJumw4MOIQUu6kO8d9G3Hls=
+github.com/Apale7/common v0.0.0-20210228074756-1ed4ed8e0530 h1:msycRyXZslu8SktR+9BYUmESX7tH5bnIWVPLod7deME=
+github.com/Apale7/common v0.0.0-20210228074756-1ed4ed8e0530/go.mod h1:S+Smwc54DU2qjEmNU+tcKJumw4MOIQUu6kO8d9G3Hls=
+github.com/Apale7/common v0.0.0-20210228081448-ed0e6f253949 h1:5agRVk/no/D2KGTbSXSmWnSMXlZuGPvB2RovKy7E6MU=
+github.com/Apale7/common v0.0.0-20210228081448-ed0e6f253949/go.mod h1:U9mTGlvOSPNPoFuFIwDTK/J3VJ46T1LY561sFuV9pjg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
@@ -114,8 +116,6 @@ google.golang.org/grpc v1.25.1/go.mod h1:c3i+UQWmh7LiEpx4sFZnkU36qjEYZ0imhYfXVyQ
 google.golang.org/grpc v1.27.0/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8abTk=
 google.golang.org/grpc v1.35.0 h1:TwIQcH3es+MojMVojxxfQ3l3OF2KzlRxML2xZq0kRo8=
 google.golang.org/grpc v1.35.0/go.mod h1:qjiiYl8FncCW8feJPdyg3v6XW24KsRHe+dy9BAGRRjU=
-google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0 h1:M1YKkFIboKNieVO5DLUEVzQfGwJD30Nv2jfUgzb5UcE=
-google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0/go.mod h1:6Kw0yEErY5E/yWrBtf03jp27GLLJujG4z/JK95pnjjw=
 google.golang.org/protobuf v0.0.0-20200109180630-ec00e32a8dfd/go.mod h1:DFci5gLYBciE7Vtevhsrf46CRTquxDuWsQurQQe4oz8=
 google.golang.org/protobuf v0.0.0-20200221191635-4d8936d0db64/go.mod h1:kwYJMbMJ01Woi6D6+Kah6886xMZcty6N08ah7+eCXa0=
 google.golang.org/protobuf v0.0.0-20200228230310-ab0ca4ff8a60/go.mod h1:cfTl7dwQJ+fmap5saPgwCLgHXTUD7jkjRqWcaiX5VyM=
