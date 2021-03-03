@@ -43,3 +43,14 @@ func CheckToken(ctx context.Context, token string) (userInfo *user_center.UserIn
 	}
 	return resp.User, nil
 }
+
+func Refresh(ctx context.Context, refreshToken string) (accessToken, newRefreshToken string, err error) {
+	req := &user_center.RefreshRequest{RefreshToken: refreshToken}
+	resp, err := userCenterClient.Refresh(ctx, req)
+	if err != nil {
+		return
+	}
+	accessToken = resp.AccessToken
+	newRefreshToken = resp.RefreshToken
+	return
+}

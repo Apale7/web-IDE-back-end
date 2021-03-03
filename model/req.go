@@ -13,3 +13,8 @@ type LoginReq struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
+
+type RefreshReq struct {
+	Base
+	RefreshToken string `json:"refresh_token"`
+}

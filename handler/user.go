@@ -33,5 +33,20 @@ func Register(c *gin.Context) {
 }
 
 func Refresh(c *gin.Context) {
+	ctx := context.Background()
+	var reqBody model.RefreshReq
+	if err := c.ShouldBind(&reqBody); err != nil {
+		logrus.Warnf("invalid params: %v", err)
+		utils.RetErr(c, err)
+		return
+	}
+	logrus.Infof("reqBody: %+v", reqBody)
 
+	accessToken, refreshToken, err := rpc.Refresh(ctx, reqBody.RefreshToken)
+	if err != nil {
+		logrus.Warnf("login failed, err: %v", err)
+		utils.RetErr(c, err)
+		return
+	}
+	utils.RetData(c, gin.H{"accessToken": accessToken, "refreshToken": refreshToken})
 }
