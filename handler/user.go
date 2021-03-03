@@ -25,7 +25,7 @@ func Login(c *gin.Context) {
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, gin.H{"accessToken": accessToken, "refreshToken": refreshToken})
+	utils.RetData(c, gin.H{"access_token": accessToken, "refresh_token": refreshToken})
 }
 
 func Register(c *gin.Context) {
@@ -48,5 +48,5 @@ func Refresh(c *gin.Context) {
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, gin.H{"accessToken": accessToken, "refreshToken": refreshToken})
+	utils.RetData(c, gin.H{"access_token": accessToken, "refresh_token": refreshToken})
 }
