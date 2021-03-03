@@ -7,10 +7,11 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func Register(ctx context.Context, user user_center.User, extra user_center.UserExtra) (err error) {
+// Register 注册
+func Register(ctx context.Context, user *user_center.User, extra *user_center.UserExtra) (err error) {
 	req := &user_center.RegisterRequest{
-		User:      &user,
-		UserExtra: &extra,
+		User:      user,
+		UserExtra: extra,
 	}
 	resp, err := userCenterClient.Register(ctx, req)
 	if err != nil {
@@ -19,4 +20,15 @@ func Register(ctx context.Context, user user_center.User, extra user_center.User
 	}
 	logrus.Infof("注册成功, id: %d\n", resp.Id)
 	return
+}
+
+func Login(ctx context.Context, )
+
+func CheckToken(ctx context.Context, token string) (userInfo *user_center.UserInfo, err error) {
+	req := &user_center.CheckTokenRequest{Token: token}
+	resp, err := userCenterClient.CheckToken(ctx, req)
+	if err != nil {
+		return
+	}
+	return resp.User, nil
 }

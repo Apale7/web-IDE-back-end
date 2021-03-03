@@ -2,9 +2,8 @@ package rpc
 
 import (
 	"context"
-	"web-IDE-back-end/proto/codeRunner"
-
 	"github.com/sirupsen/logrus"
+	"web-IDE-back-end/proto/codeRunner"
 )
 
 // Judge Judge the code and return the result

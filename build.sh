@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 NAME="web-IDE-back-end"
 #编译pb
-# for x in **/*.proto; 
-# do protoc --go_out=plugins=grpc,paths=source_relative:. $x; done
+# protoc --go_out=. --go_opt=paths=source_relative \
+#     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+#     proto/*/*.proto
 find ./ -name "*.go" | xargs gofmt -w -s -l
 mkdir -p output/bin output/config
 cp -r config/ output/config/
