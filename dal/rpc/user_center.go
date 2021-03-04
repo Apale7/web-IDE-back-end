@@ -22,17 +22,17 @@ func Register(ctx context.Context, user *user_center.User, extra *user_center.Us
 	return
 }
 
-func Login(ctx context.Context, username, password string) (accessToken, refreshToken string, err error) {
+func Login(ctx context.Context, username, password string) (resp *user_center.LoginResponse, err error) {
 	req := &user_center.LoginRequest{
 		Username: username,
 		Password: password,
 	}
-	resp, err := userCenterClient.Login(ctx, req)
+	resp, err = userCenterClient.Login(ctx, req)
 	if err != nil {
 		return
 	}
 
-	return resp.AccessToken, resp.RefreshToken, nil
+	return
 }
 
 func CheckToken(ctx context.Context, token string) (userInfo *user_center.UserInfo, err error) {
@@ -44,13 +44,12 @@ func CheckToken(ctx context.Context, token string) (userInfo *user_center.UserIn
 	return resp.User, nil
 }
 
-func Refresh(ctx context.Context, refreshToken string) (accessToken, newRefreshToken string, err error) {
+func Refresh(ctx context.Context, refreshToken string) (resp *user_center.RefreshResponse, err error) {
 	req := &user_center.RefreshRequest{RefreshToken: refreshToken}
-	resp, err := userCenterClient.Refresh(ctx, req)
+	resp, err = userCenterClient.Refresh(ctx, req)
 	if err != nil {
 		return
 	}
-	accessToken = resp.AccessToken
-	newRefreshToken = resp.RefreshToken
+
 	return
 }

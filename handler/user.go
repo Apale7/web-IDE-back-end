@@ -19,13 +19,13 @@ func Login(c *gin.Context) {
 		return
 	}
 	logrus.Infof("reqBody: %+v", reqBody)
-	accessToken, refreshToken, err := rpc.Login(ctx, reqBody.Username, reqBody.Password)
+	resp, err := rpc.Login(ctx, reqBody.Username, reqBody.Password)
 	if err != nil {
 		logrus.Warnf("login failed, err: %v", err)
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, gin.H{"access_token": accessToken, "refresh_token": refreshToken})
+	utils.RetData(c, resp)
 }
 
 func Register(c *gin.Context) {
@@ -42,11 +42,11 @@ func Refresh(c *gin.Context) {
 	}
 	logrus.Infof("reqBody: %+v", reqBody)
 
-	accessToken, refreshToken, err := rpc.Refresh(ctx, reqBody.RefreshToken)
+	resp, err := rpc.Refresh(ctx, reqBody.RefreshToken)
 	if err != nil {
-		logrus.Warnf("login failed, err: %v", err)
+		logrus.Warnf("refresh failed, err: %v", err)
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, gin.H{"access_token": accessToken, "refresh_token": refreshToken})
+	utils.RetData(c, resp)
 }
