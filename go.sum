@@ -1,8 +1,10 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-github.com/Apale7/common v0.0.0-20210228074756-1ed4ed8e0530 h1:msycRyXZslu8SktR+9BYUmESX7tH5bnIWVPLod7deME=
-github.com/Apale7/common v0.0.0-20210228074756-1ed4ed8e0530/go.mod h1:S+Smwc54DU2qjEmNU+tcKJumw4MOIQUu6kO8d9G3Hls=
-github.com/Apale7/common v0.0.0-20210228081448-ed0e6f253949 h1:5agRVk/no/D2KGTbSXSmWnSMXlZuGPvB2RovKy7E6MU=
-github.com/Apale7/common v0.0.0-20210228081448-ed0e6f253949/go.mod h1:U9mTGlvOSPNPoFuFIwDTK/J3VJ46T1LY561sFuV9pjg=
+github.com/Apale7/common v0.0.0-20210307130253-2fe1dd39250d h1:lLj2U8DMhiS3eaE1fDei/JfaL5ZGDb1ucdQHzAgeCLo=
+github.com/Apale7/common v0.0.0-20210307130253-2fe1dd39250d/go.mod h1:U9mTGlvOSPNPoFuFIwDTK/J3VJ46T1LY561sFuV9pjg=
+github.com/Apale7/common v0.0.0-20210307134144-f19144e462ca h1:zbGIEjkGZqmglHrOUFTRRxWZz7Z1IKLz4vPaHUtnnZs=
+github.com/Apale7/common v0.0.0-20210307134144-f19144e462ca/go.mod h1:U9mTGlvOSPNPoFuFIwDTK/J3VJ46T1LY561sFuV9pjg=
+github.com/Apale7/common v0.0.0-20210307140537-e9e3860c59b0 h1:CaoDnciItC6vBgJnlZt+hN1brQEl1QarytBDBjT7y2I=
+github.com/Apale7/common v0.0.0-20210307140537-e9e3860c59b0/go.mod h1:U9mTGlvOSPNPoFuFIwDTK/J3VJ46T1LY561sFuV9pjg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
