@@ -21,6 +21,6 @@ type RefreshReq struct {
 
 // GetFileReq GetFile和GetDir公用
 type GetFileReq struct {
-	ContainerID string `json:"container_id"`
-	Path        string `json:"path"`
+	ContainerID string `json:"container_id" form:"container_id"`
+	Path        string `json:"path" form:"path"`
 }
