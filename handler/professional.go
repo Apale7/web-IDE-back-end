@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strings"
 	"web-IDE-back-end/dal/rpc"
 	"web-IDE-back-end/model"
 	util "web-IDE-back-end/utils"
@@ -62,4 +63,29 @@ func GetDir(c *gin.Context) {
 		resFileStat = append(resFileStat, f.ToRespFileStat())
 	}
 	utils.RetData(c, resFileStat)
+}
+
+func SaveFile(c *gin.Context) {
+	ctx := context.Background()
+	var reqBody model.SaveFileReq
+	if err := c.ShouldBind(&reqBody); err != nil {
+		logrus.Warnf("invalid params, err: %v", err)
+		utils.RetErr(c, constdef.ErrInvalidParams)
+	}
+	logrus.Infof("Get reqBody: %+v", reqBody)
+
+	path, fileName := splitPath(reqBody.Path)
+	newVersion, err := rpc.SaveFile(ctx, reqBody.ContainerID, path, fileName, reqBody.Data)
+	if err != nil {
+		logrus.Warnf("SaveFile failed, err: %v", err)
+		utils.RetErr(c, errors.New("SaveFile error"))
+		return
+	}
+	utils.RetData(c, newVersion)
+}
+
+//path = newPath+"/"+fileName, 返回newPath和fileName
+func splitPath(path string) (newPath, fileName string) {
+	i := strings.LastIndex(path, "/")
+	return path[:i], path[i+1:]
 }

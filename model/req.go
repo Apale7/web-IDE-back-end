@@ -24,3 +24,9 @@ type GetFileReq struct {
 	ContainerID string `json:"container_id" form:"container_id"`
 	Path        string `json:"path" form:"path"`
 }
+
+type SaveFileReq struct {
+	ContainerID string `json:"container_id" form:"container_id"`
+	Path        string `json:"path" form:"path"`
+	Data        string `json:"data" form:"data"`
+}

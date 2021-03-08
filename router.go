@@ -18,7 +18,7 @@ func collectRoutes(r *gin.Engine) {
 	{
 		file.GET("/file", handler.GetFile)
 		file.GET("/dir", handler.GetDir)
-		file.POST("/save")
+		file.POST("/save", handler.SaveFile)
 	}
 	r.GET("/api/ping", func(c *gin.Context) {
 		c.String(200, "pong")

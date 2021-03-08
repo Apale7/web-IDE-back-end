@@ -2,7 +2,9 @@ package rpc
 
 import (
 	"context"
+	"io"
 	containerManager "web-IDE-back-end/proto/container_server"
+	util "web-IDE-back-end/utils"
 
 	"github.com/sirupsen/logrus"
 )
@@ -18,6 +20,9 @@ func GetFile(ctx context.Context, containerID, path string) (data []byte, err er
 	data = make([]byte, 0, 1<<10)
 	for {
 		resp, err := stream.Recv()
+		if err == io.EOF {
+			break
+		}
 		if err != nil {
 			logrus.Warnln(err)
 			break
@@ -35,4 +40,25 @@ func GetDirectory(ctx context.Context, containerID, path string) (fileStat []*co
 		return
 	}
 	return resp.Files, nil
+}
+
+func SaveFile(ctx context.Context, containerID, path, fileName, data string) (newVewsion string, err error) {
+	tarFile, err := util.Pack([]byte(data))
+	if err != nil {
+		return
+	}
+	req := &containerManager.UpdateFile_Request{
+		ContainerId: containerID,
+		Path:        path,
+		FileName:    fileName,
+		Force:       true,
+		Data:        tarFile,
+		OldVersion:  "12345657890",
+	}
+	resp, err := containerManagerClient.UpdateFile(ctx, req)
+	if err != nil {
+		// logrus.Warnf("SaveFile failed: %+v", err)
+		return
+	}
+	return resp.NewVersion, nil
 }
