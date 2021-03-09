@@ -72,6 +72,10 @@ func SaveFile(c *gin.Context) {
 		logrus.Warnf("invalid params, err: %v", err)
 		utils.RetErr(c, constdef.ErrInvalidParams)
 	}
+	if reqBody.Path == "" {
+		// utils.RetErr(c, errors.New("path is empty"))
+		return
+	}
 	logrus.Infof("Get reqBody: %+v", reqBody)
 
 	path, fileName := splitPath(reqBody.Path)

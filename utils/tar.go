@@ -3,6 +3,7 @@ package util
 import (
 	"archive/tar"
 	"bytes"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -35,27 +36,56 @@ func Unpack(tarFile []byte) (files []*model.File, err error) {
 	return files, nil
 }
 
-func Pack(content []byte) (res []byte, err error) {
-	file, err := ioutil.TempFile("temp_dir", "file*")
-	defer file.Close()
-	if err != nil {
-		logrus.Warnln(err)
-		return
+type File struct {
+	Name, Body string
+}
+
+func Pack(files []File) (res []byte, err error) {
+	var buf bytes.Buffer
+	tw := tar.NewWriter(&buf)
+	for _, file := range files {
+		hdr := &tar.Header{
+			Name: file.Name,
+			Mode: 0600,
+			Size: int64(len(file.Body)),
+		}
+		if err := tw.WriteHeader(hdr); err != nil {
+			logrus.Fatal(err)
+		}
+		if _, err := tw.Write([]byte(file.Body)); err != nil {
+			logrus.Fatal(err)
+		}
+	}
+	if err := tw.Close(); err != nil {
+		logrus.Fatal(err)
 	}
 
-	_, err = file.Write(content)
-	if err != nil {
-		logrus.Warnln(err)
-		return
+	// //查看压缩内容
+	// f, err := os.Create("temp_dir/a.tar")
+	// if err != nil {
+	// 	return
+	// }
+	// n, err := buf.WriteTo(f)
+	// if err != nil {
+	// 	return
+	// }
+	// fmt.Println("size:", n)
+	res = buf.Bytes()
+	tr := tar.NewReader(&buf)
+
+	for {
+		hdr, err := tr.Next()
+		if err == io.EOF {
+			break // 文件已经遍历完成了
+		}
+		if err != nil {
+			logrus.Fatal(err)
+		}
+		fmt.Printf("%s的文件内容: ", hdr.Name)
+		if _, err := io.Copy(os.Stdout, tr); err != nil {
+			logrus.Fatal(err)
+		}
+		fmt.Println()
 	}
-
-	tarFile, err := ioutil.TempFile("temp_dir", "rar*.tar")
-	if err != nil {
-		logrus.Warnln(err)
-		return
-	}
-	defer tarFile.Close()
-
-
 	return
 }

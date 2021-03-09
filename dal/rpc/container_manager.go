@@ -43,7 +43,9 @@ func GetDirectory(ctx context.Context, containerID, path string) (fileStat []*co
 }
 
 func SaveFile(ctx context.Context, containerID, path, fileName, data string) (newVewsion string, err error) {
-	tarFile, err := util.Pack([]byte(data))
+	// containerManager只接收tar文件
+	tarFile, err := util.Pack([]util.File{{Name: fileName, Body: data}})
+
 	if err != nil {
 		return
 	}
@@ -53,7 +55,7 @@ func SaveFile(ctx context.Context, containerID, path, fileName, data string) (ne
 		FileName:    fileName,
 		Force:       true,
 		Data:        tarFile,
-		OldVersion:  "12345657890",
+		OldVersion:  "",
 	}
 	resp, err := containerManagerClient.UpdateFile(ctx, req)
 	if err != nil {
