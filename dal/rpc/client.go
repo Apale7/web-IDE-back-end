@@ -16,7 +16,7 @@ var (
 )
 
 func init() {
-	userCenterClient = user_center.NewUserCenterClient(getConn("localhost.charlesproxy.com:8888"))
+	userCenterClient = user_center.NewUserCenterClient(getConn("111.230.172.240:9999"))
 	codeRunnerClient = codeRunner.NewCodeRunnerClient(getConn("193.112.177.167:8233"))
 	containerManagerClient = containerManager.NewManagerClient(getConn("193.112.177.167:8666"))
 }
