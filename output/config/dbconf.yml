@@ -1,0 +1,5 @@
+mysql:
+  dbname: "leetcode_rank"
+  password: "cao20110501ABO+"
+  host: "gz-cynosdbmysql-grp-b8a0xrrt.sql.tencentcdb.com"
+  port: 26678

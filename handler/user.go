@@ -25,7 +25,10 @@ func Login(c *gin.Context) {
 		utils.RetErr(c, err)
 		return
 	}
-	utils.RetData(c, resp)
+	var loginRes model.LoginResp
+	loginRes.LoginResponse = *resp
+	loginRes.Auth = []string{"super"}
+	utils.RetData(c, loginRes)
 }
 
 func Register(c *gin.Context) {

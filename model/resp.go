@@ -2,6 +2,7 @@ package model
 
 import (
 	"archive/tar"
+	user_center "web-IDE-back-end/proto/user-center"
 )
 
 type File struct {
@@ -12,4 +13,9 @@ type File struct {
 type FileStat struct {
 	FileType int32  `json:"file_type"`
 	FileName string `json:"file_name"`
+}
+
+type LoginResp struct {
+	user_center.LoginResponse
+	Auth []string `json:"auth"`
 }
