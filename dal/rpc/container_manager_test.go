@@ -17,7 +17,7 @@ func TestGetDirectory(t *testing.T) {
 var ctx = context.Background()
 
 func TestGetFile(t *testing.T) {
-	tarFile, err := GetFile(ctx, "container2", "/etc/apt")
+	tarFile, err := GetFile(ctx, "container3", "/root/a.py")
 	if err != nil {
 		logrus.Warnln(err)
 		t.FailNow()

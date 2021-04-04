@@ -11,6 +11,8 @@ import (
 
 // GetFile 获取container中的一个目录，tar格式
 func GetFile(ctx context.Context, containerID, path string) (data []byte, err error) {
+	logrus.Infof("container_id: %s", containerID)
+	logrus.Infof("path: %s", path)
 	req := &containerManager.GetFile_Request{ContainerId: containerID, Path: path}
 	stream, err := containerManagerClient.GetFile(ctx, req)
 	if err != nil {
@@ -27,6 +29,7 @@ func GetFile(ctx context.Context, containerID, path string) (data []byte, err er
 			logrus.Warnln(err)
 			break
 		}
+		logrus.Infof("rpc GetFile get %d bytes", len(resp.Data))
 		data = append(data, resp.Data...)
 	}
 	return
@@ -55,7 +58,7 @@ func SaveFile(ctx context.Context, containerID, path, fileName, data string) (ne
 		FileName:    fileName,
 		Force:       true,
 		Data:        tarFile,
-		OldVersion:  "",
+		OldVersion:  "", // todo 可以根据version检测文件冲突，后面再补
 	}
 	resp, err := containerManagerClient.UpdateFile(ctx, req)
 	if err != nil {

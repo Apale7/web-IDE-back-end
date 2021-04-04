@@ -31,6 +31,7 @@ func GetFile(c *gin.Context) {
 		utils.RetErr(c, errors.New("GetFile error"))
 		return
 	}
+	logrus.Infof("tarFile: len: %d", len(tarFile))
 	files, err := util.Unpack(tarFile)
 	if err != nil {
 		logrus.Warnf("Unpack failed, err: %v", err)
@@ -38,6 +39,7 @@ func GetFile(c *gin.Context) {
 		return
 	}
 	utils.RetData(c, gin.H{"files": files})
+	logrus.Infof("get %d file infos", len(files))
 }
 
 //GetDir 获取一个目录的文件信息(不包括内容)
