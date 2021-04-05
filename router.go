@@ -2,6 +2,7 @@ package main
 
 import (
 	"web-IDE-back-end/handler"
+	"web-IDE-back-end/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +15,7 @@ func collectRoutes(r *gin.Engine) {
 		user.POST("/register", handler.Register)
 		user.POST("/refresh", handler.Refresh)
 	}
-	file := r.Group("/api/file")
+	file := r.Group("/api/file", middleware.JWTAuthMiddleware)
 	{
 		file.GET("/file", handler.GetFile)
 		file.GET("/dir", handler.GetDir)
