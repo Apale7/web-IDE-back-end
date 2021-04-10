@@ -1,5 +1,7 @@
 package model
 
+import user_center "web-IDE-back-end/proto/user-center"
+
 // JudgeReq 用户提交代码时的请求体
 type JudgeReq struct {
 	Base
@@ -12,6 +14,13 @@ type LoginReq struct {
 	Base
 	Username string `json:"username" form:"username"`
 	Password string `json:"password" form:"password"`
+}
+
+type RegisterReq struct {
+	Base
+	Username string `json:"username" form:"username"`
+	Password string `json:"password" form:"password"`
+	user_center.UserExtra
 }
 
 type RefreshReq struct {

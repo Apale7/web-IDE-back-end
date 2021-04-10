@@ -10,7 +10,7 @@ mkdir -p output/bin output/config
 cp -r config/ output/
 
 name=$1
-echo $name + "release is buliding"
+echo $name "release is buliding"
 if [[ $name = "" ]];then
     go build -o output/bin/${NAME}.out
     chmod +x output/bin/${NAME}.out
@@ -24,3 +24,5 @@ else
     GOOS=windows GOARCH=amd64 go build -o output/bin/${NAME}.exe
 fi
 chmod +x output/start.sh
+
+echo "done."

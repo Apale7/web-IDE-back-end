@@ -3,7 +3,7 @@ module web-IDE-back-end
 go 1.16
 
 require (
-	github.com/Apale7/common v0.0.0-20210307140537-e9e3860c59b0
+	github.com/Apale7/common v0.0.0-20210319071252-40b3780d6438
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
 	github.com/golang/protobuf v1.4.3
