@@ -53,3 +53,12 @@ func Refresh(ctx context.Context, refreshToken string) (resp *user_center.Refres
 
 	return
 }
+
+func GetUserInfo(ctx context.Context, userID int) (resp *user_center.GetUserInfoResponse, err error) {
+	req := &user_center.GetUserInfoRequest{UserId: uint32(userID)}
+	resp, err = userCenterClient.GetUserInfo(ctx, req)
+	if err != nil {
+		return
+	}
+	return
+}
