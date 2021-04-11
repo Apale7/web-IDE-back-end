@@ -42,7 +42,7 @@ func Register(c *gin.Context) {
 	}
 	logrus.Infof("reqBody: %+v", reqBody)
 
-	err := rpc.Register(ctx, &user_center.User{Username: reqBody.Username, Password: reqBody.Password}, &reqBody.UserExtra)
+	err := rpc.Register(ctx, &user_center.User{Username: reqBody.Username, Password: reqBody.Password}, &user_center.UserExtra{Nickname: reqBody.Nickname, PhoneNumber: reqBody.PhoneNumber})
 
 	if err != nil {
 		logrus.Warnf("register failed, err: %v", err)
