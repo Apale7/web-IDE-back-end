@@ -9,12 +9,12 @@ import (
 
 	"github.com/sirupsen/logrus"
 )
-
-func TestGetDirectory(t *testing.T) {
-
-}
-
 var ctx = context.Background()
+
+// func TestGetDirectory(t *testing.T) {
+// 	GetDirectory(ctx, "")
+// }
+
 
 func TestGetFile(t *testing.T) {
 	tarFile, err := GetFile(ctx, "container3", "/root/a.py")
