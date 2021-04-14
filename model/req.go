@@ -14,6 +14,14 @@ type LoginReq struct {
 	Password string `json:"password" form:"password"`
 }
 
+type RegisterReq struct {
+	Base
+	Username    string `json:"username" form:"username"`
+	Password    string `json:"password" form:"password"`
+	Nickname    string `json:"nickname" form:"nickname"`
+	PhoneNumber string `json:"phone_number" form:"phone_number"`
+}
+
 type RefreshReq struct {
 	Base
 	RefreshToken string `json:"refresh_token" form:"refresh_token"`
