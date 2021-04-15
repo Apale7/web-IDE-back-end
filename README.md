@@ -1,11 +1,7 @@
 # web-IDE后端
 
-```
-// mac/linux
-./build.sh
-output/start.sh
-
-// windows
-GOOS=windows GOARCH=amd64 go build -o server.exe
-./server.exe
+```sh
+    ./build.sh #编译
+    export web_ide_back_end_port=3456 #设置端口，默认3456
+    output/start.sh #运行
 ```
