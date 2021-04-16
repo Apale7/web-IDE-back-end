@@ -19,8 +19,8 @@ var (
 
 var (
 	userCenterAddr       string
-	codeRunnerAddr       string = ":8223"
-	containerManagerAddr string = ":8666"
+	codeRunnerAddr       string = "[::]:8233"
+	containerManagerAddr string = "[::]:8666"
 )
 
 func init() {
