@@ -28,7 +28,7 @@ func Login(c *gin.Context) {
 	}
 	var loginRes model.LoginResp
 	loginRes.LoginResponse = *resp
-	loginRes.Auth = []string{"super"}
+	loginRes.Auth = resp.AuthList
 	utils.RetData(c, loginRes)
 }
 
